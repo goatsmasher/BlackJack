@@ -23,6 +23,7 @@ public class Program
         gameDeck.Shuffle();
         //Create players based on the input of the readline
         for (int i = 1; i <= players; i++) {
+            Console.Write("Please Enter A Name For Player " + i +"-");
             PlayerManager.Player playerInstance = new Player();
             gamePlayers.Add(playerInstance);
         }
@@ -38,36 +39,21 @@ public class Program
            foreach (Player gamePlayer in gamePlayers){
             int cardCount = gamePlayer.hand.Count;
             gamePlayer.hand.RemoveRange(0,cardCount);
+            gamePlayer.Busted = false;
             gameDeck.Deal(gamePlayer);
             gameDeck.Deal(gamePlayer);
             }
            foreach (Player gamePlayer in gamePlayers)
         {
-            System.Console.WriteLine(gamePlayer.showHand());
-            string answer = Console.ReadLine();
-            if(answer == "hit"){
-                gameDeck.Deal(gamePlayer);
-                //Fix christmas
-                int playerHandValue = gamePlayer.showHand();
-                if(playerHandValue > 21){
-                    System.Console.WriteLine("BUST!");
-                    continue;
-                }else if(playerHandValue == 21){
-                    System.Console.WriteLine("WOOO HOOO! BLACKJACK! Congrats!");
-                }else{
-                    gamePlayer.playerChoice();
-                }
-                }else if(answer == "stay"){
-                    continue;
-                }else{
-                    gamePlayer.playerChoice();
-                }
+            gamePlayer.showHand();
+            System.Console.WriteLine("Your current hand value is " + gamePlayer.evalHand().ToString());
+            bool doneWithHand = false;
+            while (doneWithHand == false && gamePlayer.Busted == false && gamePlayer.isBlackjack == false) {
+                doneWithHand = gamePlayer.playerChoice(gameDeck);
+            }
         }
     }
         GameSetup();
         }
     }
 }
-
-
-

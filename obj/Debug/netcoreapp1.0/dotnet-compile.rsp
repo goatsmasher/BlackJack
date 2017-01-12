@@ -1,5 +1,5 @@
---temp-output:D:\Coding Dojo\Assignments\C#\Deck_of_Cards\obj\Debug\netcoreapp1.0\
---out:D:\Coding Dojo\Assignments\C#\Deck_of_Cards\bin\Debug\netcoreapp1.0\Deck_of_Cards.dll
+--temp-output:D:\Coding Dojo\Assignments\c#\Deck_of_Cards\obj\Debug\netcoreapp1.0\
+--out:D:\Coding Dojo\Assignments\c#\Deck_of_Cards\bin\Debug\netcoreapp1.0\Deck_of_Cards.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -87,8 +87,8 @@
 --reference:C:\Users\joshp\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\joshp\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\joshp\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Dealer.cs
-D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Card.cs
-D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Deck.cs
-D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Player.cs
-D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Program.cs
+D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Dealer.cs
+D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Card.cs
+D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Deck.cs
+D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Player.cs
+D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Program.cs

@@ -7,8 +7,8 @@
 -debug:portable
 -nostdlib
 -nologo
-"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\bin\Debug\netcoreapp1.0\Deck_of_Cards.dll"
+"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\bin\Debug\netcoreapp1.0\Deck_of_Cards.dll"
 -r:"C:\Users\joshp\.nuget\packages\Microsoft.CSharp\4.0.1\ref\netstandard1.0\Microsoft.CSharp.dll"
 -r:"C:\Users\joshp\.nuget\packages\Microsoft.VisualBasic\10.0.1\ref\netstandard1.1\Microsoft.VisualBasic.dll"
 -r:"C:\Users\joshp\.nuget\packages\Microsoft.Win32.Primitives\4.0.1\ref\netstandard1.3\Microsoft.Win32.Primitives.dll"
@@ -82,8 +82,8 @@
 -r:"C:\Users\joshp\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\joshp\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\joshp\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
-"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Dealer.cs"
-"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Card.cs"
-"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Deck.cs"
-"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Player.cs"
-"D:\Coding Dojo\Assignments\C#\Deck_of_Cards\Program.cs"
+"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Dealer.cs"
+"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Card.cs"
+"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Deck.cs"
+"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Player.cs"
+"D:\Coding Dojo\Assignments\c#\Deck_of_Cards\Program.cs"
