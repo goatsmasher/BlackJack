@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CardManager;
 using DeckManager;
 using GameManager;
+using BlackJack;
 
 namespace PlayerManager {
     public class Player {
@@ -16,10 +17,23 @@ namespace PlayerManager {
         public void WinHand() {
             this.winCount += 1;
         }
-        public void hitOrStay(string answer)
+        public void playerChoice(){
+            string answer = Console.ReadLine().ToLower();
+            if(answer == "hit"){
+                this.hit();
+            }
+        }
+        public void hit()
         {   
-            System.Console.WriteLine("Dealer: Hit or Stay" + this.name);
-            answer = Console.ReadLine();
+            
+            // System.Console.WriteLine("Dealer: Hit or Stay " + this.name);
+            // return Console.ReadLine();
+        }
+        public void stay(){
+
+        }
+        public void roundEval(){
+
         }
         public Card Discard2(int CardIdx) {
             if (hand[CardIdx] != null) {
@@ -31,6 +45,20 @@ namespace PlayerManager {
         }
         public bool Discard(Card card) {
             return hand.Remove(card);
+        }
+        public int showHand(){
+            int totalHand = 0;
+            foreach (Card handCard in this.hand)
+            {
+                System.Console.WriteLine(this.name + " has a(n) " + handCard.numerical_value + " of " + handCard.suit);
+                totalHand += handCard.numValue;
+            }
+            return totalHand;
+        }
+        public void resetHand(){
+            foreach(Card handCard in this.hand){
+                Discard(handCard);
+            }
         }
     }
 }
