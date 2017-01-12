@@ -9,23 +9,23 @@ namespace BlackJack {
 public class Program
 {
 //    public DeckManager.Deck gameDeck = new Deck ();
-      public string playerChoice(){
-            string answer = Console.ReadLine();
-            return answer;
-        }
-        public void hit(Player player)
-        {   
-            gameDeck.Deal(player);
-        }
-        public bool stay = true;
-    
+    //   public string playerChoice(){
+    //         string answer = Console.ReadLine().ToLower();
+    //         return answer;
+    //     }
+        // public void hit(Player player)
+        // {   
+        //     gameDeck.Deal(player);
+        // }
+        // public bool stay = true;
+
     public static void Main(string[] args)
     {
         
         List<Player> gamePlayers = new List<Player>();
+        Console.WriteLine("How many players would like to play? [1-4]");
         string numOfPlayers = Console.ReadLine();
         int players = Convert.ToInt32(numOfPlayers);
-        Console.WriteLine(players.GetType());
         DeckManager.Deck gameDeck = new Deck ();
         gameDeck.Shuffle();
         //Create players based on the input of the readline
@@ -54,41 +54,28 @@ public class Program
            foreach (Player gamePlayer in gamePlayers)
         {
             System.Console.WriteLine(gamePlayer.showHand());
-           string answer = gamePlayer.().ToLower();
-           if(answer == "hit"){
-               gameDeck.Deal(gamePlayer);
-               //Fix christmas
-               int playerHandValue = gamePlayer.showHand();
-               if(playerHandValue > 21){
-                   System.Console.WriteLine("BUST!");
-                   continue;
-               }else if(playerHandValue == 21){
-                   System.Console.WriteLine("WOOO HOOO! BLACKJACK! Congrats!");
-               }else{
-                   gamePlayer.().ToLower();
-
-               }
-               
-            }else if(answer == "stay"){
-                continue;
-            }else{
-                gamePlayer.().ToLower();
-            }
+            string answer = Console.ReadLine();
+            if(answer == "hit"){
+                gameDeck.Deal(gamePlayer);
+                //Fix christmas
+                int playerHandValue = gamePlayer.showHand();
+                if(playerHandValue > 21){
+                    System.Console.WriteLine("BUST!");
+                    continue;
+                }else if(playerHandValue == 21){
+                    System.Console.WriteLine("WOOO HOOO! BLACKJACK! Congrats!");
+                }else{
+                    gamePlayer.playerChoice();
+                }
+                }else if(answer == "stay"){
+                    continue;
+                }else{
+                    gamePlayer.playerChoice();
+                }
         
         }
         }
-        }
-
-     
-
-        
-
-
-
-    // DeckManager.Deck myDeck = new Deck();
-    // PlayerManager.Player Josh = new Player();
-    // PlayerManager.Player Luca = new Player();
-    // Console.WriteLine("Welcome {0}", Josh.name);
+    }
     }
 }
 
