@@ -20,11 +20,8 @@ public class Card {
         else if (numValue == 13) {
             return "King";
         }
-        else if (numValue == 1) {
-            return "Ace";
-        }
         else {
-            return "Joker";
+            return "Ace";
         }
     }
 }

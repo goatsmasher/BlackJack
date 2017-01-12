@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CardManager;
 using GameManager;
+using PlayerManager;
 
 namespace DeckManager {
     public class Deck {
@@ -18,10 +19,10 @@ namespace DeckManager {
                 }
             }
         }
-        public CardManager.Card Deal() {
+        public void Deal(Player player) {
             CardManager.Card toReturn = cards[0];
             cards.RemoveAt(0);
-            return toReturn;
+            player.hand.Add(toReturn);
         }
         public void Shuffle() {
             Random rand = new Random(); 
