@@ -12,11 +12,14 @@ namespace PlayerManager {
         public Player() {
             name = Console.ReadLine();
         }
-        public void Draw(Deck deck) {
-            hand.Add(deck.Deal());
-        }
+
         public void WinHand() {
             this.winCount += 1;
+        }
+        public void hitOrStay(string answer)
+        {   
+            System.Console.WriteLine("Dealer: Hit or Stay" + this.name);
+            answer = Console.ReadLine();
         }
         public Card Discard2(int CardIdx) {
             if (hand[CardIdx] != null) {
