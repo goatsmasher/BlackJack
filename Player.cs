@@ -6,6 +6,7 @@ using GameManager;
 using BlackJack;
 
 namespace PlayerManager {
+
     public class Player {
         public string name { get; set;}
         public int winCount = 0;
@@ -43,8 +44,8 @@ namespace PlayerManager {
             }
             return null;
         }
-        public bool Discard(Card card) {
-            return hand.Remove(card);
+        public void Discard(Card card) {
+            hand.Remove(card);
         }
         public int showHand(){
             int totalHand = 0;
@@ -57,6 +58,7 @@ namespace PlayerManager {
         }
         public void resetHand(){
             foreach(Card handCard in this.hand){
+
                 Discard(handCard);
             }
         }

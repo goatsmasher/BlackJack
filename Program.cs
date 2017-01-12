@@ -8,20 +8,13 @@ using GameManager;
 namespace BlackJack {
 public class Program
 {
-//    public DeckManager.Deck gameDeck = new Deck ();
-    //   public string playerChoice(){
-    //         string answer = Console.ReadLine().ToLower();
-    //         return answer;
-    //     }
-        // public void hit(Player player)
-        // {   
-        //     gameDeck.Deal(player);
-        // }
-        // public bool stay = true;
+    public static void Main(){
+        BlackJack.Program.GameSetup();
+    }
 
-    public static void Main(string[] args)
+
+    public static void GameSetup()
     {
-        
         List<Player> gamePlayers = new List<Player>();
         Console.WriteLine("How many players would like to play? [1-4]");
         string numOfPlayers = Console.ReadLine();
@@ -32,22 +25,19 @@ public class Program
         for (int i = 1; i <= players; i++) {
             PlayerManager.Player playerInstance = new Player();
             gamePlayers.Add(playerInstance);
-            
         }
-        //For each player in our new game, let's deal them 2 cards
-        // foreach (Player gamePlayer in gamePlayers)
-        // {
-        //     gameDeck.Deal(gamePlayer); 
-        //     gameDeck.Deal(gamePlayer);
-            //Now let's show players what cards they have...?
-            // gamePlayer.showHand();
-        // }
+        GamePlay(gamePlayers, gameDeck);
+    }
+    public static void GamePlay(List<Player> gamePlayers, Deck gameDeck) {
+
         int[] turns =  {1,2,3,4};
         for (int i = 0; i < turns.Length; i++)
         {
            System.Console.WriteLine("New Round Started"); 
+           
            foreach (Player gamePlayer in gamePlayers){
-            gamePlayer.resetHand();
+            int cardCount = gamePlayer.hand.Count;
+            gamePlayer.hand.RemoveRange(0,cardCount);
             gameDeck.Deal(gamePlayer);
             gameDeck.Deal(gamePlayer);
             }
@@ -72,10 +62,10 @@ public class Program
                 }else{
                     gamePlayer.playerChoice();
                 }
-        
-        }
         }
     }
+        GameSetup();
+        }
     }
 }
 
