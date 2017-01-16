@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using CardManager;
-using GameManager;
 using PlayerManager;
 
 namespace DeckManager {

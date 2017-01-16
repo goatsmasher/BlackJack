@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using CardManager;
 using DeckManager;
-using GameManager;
 using BlackJack;
 
 namespace PlayerManager {
@@ -44,9 +43,7 @@ namespace PlayerManager {
                     System.Console.WriteLine("YOU GOT AN ACE! WHAT VALUE DO YOU WANT?? 1 or 11??");
                     evalHand();
                 }
-                // handCard.numValue = ace;
                 showHand();
-
                }
                totalHand += handCard.numValue;
            }
@@ -64,13 +61,10 @@ namespace PlayerManager {
                 if (this.isBlackjack == true) {
                     answer = "stay";
                 }
-                if(answer == "stay") {
-                    stay();
-                    return true;
-                }
-                answer = "";
-                System.Console.WriteLine("Dealer: Hit or Stay " + this.name);
+                System.Console.WriteLine("Dealer: 'Would you like to Hit or Stay, " + this.name + "?'");
+                Console.Write(this.name + ":");
                 answer = Console.ReadLine().ToLower();
+                Console.WriteLine("");
                 if(answer == "hit") {
                     hit(gameDeck);
                     return false;
@@ -87,45 +81,35 @@ namespace PlayerManager {
             }
         public void hit(Deck gameDeck)
         {   
+            System.Threading.Thread.Sleep(500);
             gameDeck.Deal(this);
             this.showHand();
             int handTotal = evalHand();
+            if (handTotal < 21) {
+                System.Console.WriteLine("Your current hand value is " + this.evalHand().ToString());
+            } 
             if (handTotal > 21) {
-                Console.WriteLine("############  -You Busted!- ############");
-                Console.WriteLine("     ###### Next Players Turn! #####");
+                Console.WriteLine("\n############  !- " +this.name+ " Busted !- ############");
+                Console.WriteLine("     ###### Next Players Turn! #####\n");
+                System.Threading.Thread.Sleep(1000);
                 this.Busted = true;
             }
             if (handTotal == 21) {
-                Console.WriteLine("$~$~$~$~$~$~$~$~$~ You got BlackJack! ~$~$~$~$~$~$~$~$~$");
+                Console.WriteLine("$~$~$~$~$~$~$~$~$~ You got BlackJack! ~$~$~$~$~$~$~$~$~$\n");
                 this.isBlackjack = true;
             }
             else {
                 if (this.Busted == true) {
                     stay();
                 }
-            playerChoice(gameDeck);
             }
         }
-        public void stay(){
+        public int stay(){
             int handTotal = 0;
             foreach (Card handCard in this.hand) {
                 handTotal += handCard.numValue;
             }
-            if (this.Busted == true) {
-                System.Console.WriteLine();
-            }
-            else {
-            Console.WriteLine("Your final hand was: " + handTotal);   
-            }
-            // return true;
-        }
-        public Card Discard2(int CardIdx) {
-            if (hand[CardIdx] != null) {
-                Card toReturn = hand[CardIdx];
-                hand.RemoveAt(CardIdx);
-                return toReturn;
-            }
-            return null;
+            return handTotal;
         }
         public void Discard(Card card) {
             hand.Remove(card);
@@ -138,7 +122,6 @@ namespace PlayerManager {
         }
         public void resetHand(){
             foreach(Card handCard in this.hand){
-
                 Discard(handCard);
             }
         }
